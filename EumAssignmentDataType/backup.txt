@@ -1,0 +1,107 @@
+// Program Name: Source.cpp
+//Excersice #1 (triangle type) on p.517
+//
+//Equilateral: all sides equal the same
+//
+//Isosceles: two sides of equal length
+//
+//Scalene: three unequal sides
+//
+//
+//Shamar Gordon 
+//
+//CISC115 10:00am Mon and wed
+//Assignment #6 Due Date: Nov. 1, 2017 (midnight)
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+enum TringleType {scalene, isoceles, equilateral, noTriangle };
+
+TringleType Tringleshape(double side_1, double side_2, double side_3);
+
+TringleType answer;
+
+double side_1;
+double side_2;
+double side_3;
+
+
+string shapeAnswer(int value);
+
+
+int main() {
+
+
+	//INPUT
+	cout << "Please enter the length of side_1" << endl;
+	cin >> side_1;
+
+
+	cout << "please enter the length of side_2" << endl;
+	cin >> side_2;
+
+	cout << "Please enter the length of side_3" << endl;
+	cin >> side_3;
+
+
+
+	//PROCESS
+
+	//TringleType Tringleshape(double side_1, double side_2, double side_3);
+
+	//TringleType answer;
+
+	if (side_3 >= (side_1 + side_2) || side_2 >= (side_1 + side_3) || side_1 >= (side_2 + side_3)) {
+
+		//cout << "NoTringle" << endl;
+
+		answer = noTriangle;
+	}
+
+	else if (side_1 == side_2 && side_2 == side_3)
+		answer = equilateral;
+
+
+	else if ((side_1 == side_2) || (side_2 == side_3) || side_3 == side_1)
+		answer = isoceles;
+
+	else {
+		//cout << "scalene" << endl;
+		answer = scalene;
+	   }
+
+
+
+	//OUTPUT
+	//string shapeAnswer(int value); {
+
+		//string answer;
+
+		switch (answer) {
+		case 0:
+			cout << "scalene" << endl;
+			break;
+		case 1:
+				cout << "Isosceles" << endl;
+			break;
+		case 2:
+			cout << "Equilateral" << endl;
+			break;
+		case 3:
+			cout << " Not a triangle" << endl;
+			break;
+		default:
+			cout << " switch error" << answer << endl;
+			
+		}
+
+	//return Answer;
+
+ system("pause");
+return 0;
+
+}
